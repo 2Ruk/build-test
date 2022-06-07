@@ -9,4 +9,6 @@ build-test-docker
 3. docker ps
    1. NAMES 확인
 4. docker stop __names__
-   1.  종료
+   1. 종료
+
+
