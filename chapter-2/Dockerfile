@@ -4,6 +4,12 @@ FROM node
 # 작업 디렉토리를 설정
 WORKDIR /app
 
+# copy, run 사이의 변경이 일어나지 않았기에, 리빌딩 되지 않음
+
+COPY package.json /app
+
+RUN npm install
+
 # 두개의 경로
 # DOT 1 -  컨테이너의 외부
 # DOT 2 -  그 파일을 저장해야하는 이미지 내부의 경로
@@ -11,7 +17,6 @@ WORKDIR /app
 # ./ === /app
 COPY . /app
 
-RUN npm install
 
 # RUN은 이미지 생성시 바로 실행
 # CMD는 이미지를 기반으로 시작될 때 실행됨
